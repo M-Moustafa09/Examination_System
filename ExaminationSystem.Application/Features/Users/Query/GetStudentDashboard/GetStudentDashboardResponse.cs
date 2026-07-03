@@ -1,0 +1,7 @@
+﻿namespace ExaminationSystem.Application.Features.Users.Query.GetStudentDashboard;
+
+public record GetStudentDashboardResponse(GetStudentDashboardStudentResponse GetStudentDashboardStudentResponse, List<GetStudentDashboardEnrolledDiplomasResponse> GetStudentDashboardEnrolledDiplomasResponse, List<GetStudentDashboardRecentAttemptsResponse> GetStudentDashboardRecentAttemptsResponse, GetStudentDashboardOverallStatsResponse GetStudentDashboardOverallStatsResponse);
+public record GetStudentDashboardStudentResponse(string StudentId, string FullName, string Email);
+public record GetStudentDashboardEnrolledDiplomasResponse(Guid DiplomaId, string Title, int QuizCount, int CompletedQuizzes, decimal ProgressPercentage, DateTime LastActivityAt);
+public record GetStudentDashboardRecentAttemptsResponse(Guid AttemptId, string QuizTitle, decimal Score, bool Passed, DateTime SubmittedAt);
+public record GetStudentDashboardOverallStatsResponse(int TotalQuizzesTaken, decimal AvgScore, decimal PassRate, int TotalTimeSpentMinutes);
